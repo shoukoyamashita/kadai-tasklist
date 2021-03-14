@@ -1,28 +1,10 @@
-<h1>タスク一覧</h1>
+<h2>タスク一覧</h2>
+<% if logged_in? %>
+<p>ログイン完了ユーザ: <%= current_user.name %>  <%= link_to 'Logout', logout_path, method: :delete %></p>
 
-<% if @tasks.any? %>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>id</th>
-        <th>ステータス</th>
-        <th>タスク</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @tasks.each do |task| %>
-        <tr>
-          <td><%= link_to task.id, task %></td>
-          <td><%= task.status %></td>
-          <td><%= task.content %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-  <div>
-    <%= paginate @tasks %>
-  </div>
+
+<div class="row">
+      <%= render 'tasks/tasks', tasks: @tasks %>
+  
+</div>
 <% end %>
-
-<%= link_to '新規メッセージの投稿', new_task_path, class: "btn btn-primary" %>
-<%= link_to 'Sign up now!', signup_path, class: 'btn btn-primary' %>
