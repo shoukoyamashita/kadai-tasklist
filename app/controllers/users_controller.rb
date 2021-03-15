@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
-
-  before_action :require_user_logged_in
-  before_action :current_user, only: [:show, :update, :destroy]
+  before_action :require_user_logged_in, only: [:index, :show]
+  before_action :current_user, only: [:show]
 
 
   def index
