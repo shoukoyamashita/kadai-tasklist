@@ -4,10 +4,10 @@
       <img class="mr-2 rounded" src="<%= gravatar_url(task.user, { size: 50 }) %>" alt="">
       <div class="media-body">
         <div>
-          <%= link_to task.user.name, user_path(task.user) %> <span class="text-muted">[投稿日時]<%= task.created_at %></span>
+          <span class="text-muted">[投稿日時]<%= task.created_at %></span>
         </div>
         <div>
-          <p class="mb-0">id:<%= link_to task.id, task %></p>
+          <p class="mb-0">id:<%= task.id %></p>
           <p class="mb-0">ステータス:<%= task.status %></p>
           <p class="mb-0">タスク:<%= task.content %></p>
         </div>

@@ -2,9 +2,10 @@
 <% if logged_in? %>
 <p>ログイン完了ユーザ: <%= current_user.name %>  <%= link_to 'Logout', logout_path, method: :delete %></p>
 
+  
 
-<div class="row">
       <%= render 'tasks/tasks', tasks: @tasks %>
   
-</div>
+
+
 <% end %>
