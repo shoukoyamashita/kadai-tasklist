@@ -11,6 +11,8 @@ class UsersController < ApplicationController
     @tasks = @user.tasks.order(id: :desc).page(params[:page])
     counts(@user)
   end
+  
+  
 
   def new
     @user = User.new
