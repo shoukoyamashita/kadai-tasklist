@@ -5,13 +5,14 @@ class TasksController < ApplicationController
   def index
     @tasks = current_user.tasks.order(id: :desc).page(params[:page]).per(10)
   end
+ 
   
   def edit
   end
-
+   
   def show
   end
-
+  
   def new
     @task = Task.new
   end
@@ -27,7 +28,7 @@ class TasksController < ApplicationController
       render :new
     end    
   end
-
+  
   def update
     if @task.update(task_params)
       flash[:success] = 'Task は正常に更新されました'
@@ -46,9 +47,7 @@ class TasksController < ApplicationController
   
   private
   
-  def set_task
-    @task = Task.find(params[:id])
-  end
+
   
   #Strong Parameter
   def task_params
